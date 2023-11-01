@@ -68,3 +68,23 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+//Make an API call after every key press
+//But if the difference between the API calls is < 200ms, decline the API call
+
+/\*
+
+Key - i
+
+- render the component
+- useEffect()
+- Start timer => Make API call after 200 ms
+
+Key - ip
+
+- Destroy the component (useEffect() return Method)
+- Re-render the component
+- useEffect()
+- Start timer => Make API call after 200 ms
+
+\*/
