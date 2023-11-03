@@ -17,22 +17,32 @@ const Sidebar = () => {
           <Link to="/">Home</Link>
         </li>
         <li>Shorts</li>
-        <li>Videos</li>
-        <li>Live</li>
+        <li>Subscriptions</li>
       </ul>
-      <h1 className="font-bold pt-5">Subscriptions</h1>
+      <h1 className="font-bold pt-5">You</h1>
       <ul>
-        <li>Music</li>
-        <li>Sports</li>
-        <li>Gaming</li>
-        <li>Movies</li>
+        <li>Your Channel</li>
+        <li>History</li>
+        <li>Your Videos</li>
+        <li>Watch Later</li>
+        <li>Liked Videos</li>
       </ul>
       <h1 className="pt-5 font-bold">Explore</h1>
       <ul>
+        <li>Trending</li>
+        <li>Shopping</li>
         <li>Music</li>
-        <li>Sports</li>
-        <li>Gaming</li>
         <li>Movies</li>
+        <li>Live</li>
+        <li>Gaming</li>
+        <li>Sports</li>
+        <li>News</li>
+        <li>Sports</li>
+        <li>Learning</li>
+      </ul>
+      <h1 className="pt-5 font-bold">Explore</h1>
+      <ul>
+        <li>More from Youtube</li>
       </ul>
     </div>
   );
