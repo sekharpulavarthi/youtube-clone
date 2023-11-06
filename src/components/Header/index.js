@@ -87,6 +87,7 @@ const Header = () => {
 
   const handleSubmit = () => {
     navigate("/results?search_query=" + searchQuery);
+    setShowSuggestions(false);
   };
 
   return (
@@ -117,8 +118,12 @@ const Header = () => {
               }
             }}
             id="searchInput"
+            value={searchQuery}
           />
-          <button className="border border-gray-400 py-2 px-5 rounded-r-full bg-gray-100">
+          <button
+            onClick={handleSubmit}
+            className="border border-gray-400 py-2 px-5 rounded-r-full bg-gray-100"
+          >
             <AiOutlineSearch className="h-6 w-6" />
           </button>
         </div>
@@ -129,7 +134,10 @@ const Header = () => {
           >
             {suggestions.map((suggestion) => (
               <Link key={suggestion} to={"/results?search_query=" + suggestion}>
-                <li className="bg-transparent w-full flex align-center px-2 py-2 shadow-sm cursor-pointer hover:bg-gray-100">
+                <li
+                  onClick={() => setSearchQuery(suggestion)}
+                  className="bg-transparent w-full flex align-center px-2 py-2 shadow-sm cursor-pointer hover:bg-gray-100"
+                >
                   <AiOutlineSearch className="h-6 mr-1" />
                   <span className="pr-2">{suggestion}</span>
                 </li>

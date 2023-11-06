@@ -11,7 +11,7 @@ const SearchResults = () => {
 
   useEffect(() => {
     getSearchResults();
-  }, []);
+  }, [searchText]);
 
   const getSearchResults = async () => {
     const data = await fetch(`${YOUTUBE_SEARCH_RESULTS_API} + q=${searchText}`);
