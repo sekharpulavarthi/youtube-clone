@@ -1,22 +1,30 @@
 import React from "react";
-import Button from "../Button/Button";
+import Button from "../Button";
 
-const ButtonsList = () => {
+const list = [
+  "All",
+  "Live",
+  "Sports",
+  "Gaming",
+  "Cricket",
+  "Music",
+  "Marvel",
+  "Movies",
+  "Comedy",
+  "Action",
+  "Software",
+  "ReactJs",
+  "Redux",
+];
+
+const ButtonList = () => {
   return (
-    <div>
-      <Button name="All" />
-      <Button name="Live" />
-      <Button name="Songs" />
-      <Button name="Cooking" />
-      <Button name="Cricket" />
-      <Button name="Love" />
-      <Button name="Games" />
-      <Button name="Hunt" />
-      <Button name="Romance" />
-      <Button name="Movies" />
-      <Button name="Love Songs" />
+    <div className="flex flex-row ml-4 dark:bg-slate-800 dark:text-slate-300">
+      {list.map((item, index) => (
+        <Button key={index} name={item} />
+      ))}
     </div>
   );
 };
 
-export default ButtonsList;
+export default ButtonList;
