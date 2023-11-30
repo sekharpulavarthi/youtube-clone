@@ -1,32 +1,27 @@
 import { Provider } from "react-redux";
-import { Suspense, lazy } from "react";
 import "./App.css";
-import Body from "./components/Body";
-import Header from "./components/Header";
-import store from "./utils/stores/store";
-import { createBrowserRouter, Outlet } from "react-router-dom";
-import MainContainer from "./components/MainContainer";
-import SearchResults from "./components/SearchResults";
+import Body from "./Components/Body";
+import Header from "./Components/Header";
+import { AppStore } from "./utils/AppStore";
+import {
+  Outlet,
+  Router,
+  RouterProvider,
+  createBrowserRouter,
+} from "react-router-dom";
+import MainContainer from "./Components/MainContainer";
+import { Suspense, lazy } from "react";
 
-const App = () => {
-  return (
-    <Provider store={store}>
-      <div className="App">
-        <Header />
-        <Outlet />
-      </div>
-    </Provider>
-  );
-};
-
-export default App;
-
-const WatchPage = lazy(() => import("../src/components/WatchPage"));
+const WatchPage = lazy(() => import("../src/Components/WatchPage"));
+const SearchResultsPage = lazy(() =>
+  import("../src/Components/SearchResultsPage")
+);
 
 export const appRouter = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <></>,
     children: [
       {
         path: "/",
@@ -37,19 +32,34 @@ export const appRouter = createBrowserRouter([
             element: <MainContainer />,
           },
           {
-            path: "/watch",
+            path: "watch",
             element: (
-              <Suspense fallback={<h1>Loading....</h1>}>
+              <Suspense>
                 <WatchPage />
               </Suspense>
             ),
           },
           {
-            path: "/results",
-            element: <SearchResults />,
+            path: "search",
+            element: (
+              <Suspense>
+                <SearchResultsPage />
+              </Suspense>
+            ),
           },
         ],
       },
     ],
   },
 ]);
+
+function App() {
+  return (
+    <Provider store={AppStore}>
+      <Header />
+      {/* Here Outlet Gives the Child */}
+      <Outlet />
+    </Provider>
+  );
+}
+export default App;
